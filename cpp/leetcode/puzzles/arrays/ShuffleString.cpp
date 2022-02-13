@@ -14,8 +14,9 @@ class Solution {
 public:
     string restoreString(string s, vector<int>& indices) {
         string str = s;
-        for (int count = 0; count < indices.size(); ++count) {
-            str[count] = s[indices[count]];
+        size_t len = indices.size();
+        for (size_t count = 0; count < len; ++count) {
+            str[indices[count]] = s[count];
         }
         return str;
     }
@@ -26,7 +27,7 @@ int main()
 {
     Solution s;
     {
-        vector<int> indices = { 4,5,6,7,0,1,2,3 };
+        vector<int> indices = { 4,5,6,7,0,2,1,3 };
         assert(s.restoreString("codeleet", indices) == "leetcode");
     }
     {
